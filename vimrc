@@ -69,6 +69,12 @@ set ai "Auto indent
 set si "Smart indent
 set wrap "Wrap lines
 
+" Define characters used for :set list
+set listchars=space:·,nbsp:!,tab:>>,extends:⟩,precedes:⟨
+
+" Highlight all non-breaking spaces as errors
+match Error /\%xA0/
+
 " Ignore wrapping when moving around on lines
 map j gj
 map k gk
@@ -144,6 +150,8 @@ noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 " Toggle paste mode on and off
 map <leader>pp :setlocal paste!<cr>
 
+" Toggle display of listchars
+map <leader>l :setlocal list!<cr>
 
 function! CmdLine(str)
     exe "menu Foo.Bar :" . a:str
